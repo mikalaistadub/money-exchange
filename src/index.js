@@ -2,13 +2,17 @@
 module.exports = function makeExchange(currency) {
     // console.log(currency);
     
-    function Error (error){
+   function MyError (error){
       this.error = error;
     }
   
-    if(currency >= 10000){
-      throw new Error ("You are rich, my friend! We don't have so much coins for exchange");
-      // return objError;
+    if(currency > 10000){
+
+      var errorObj = {};
+      errorObj.error = "You are rich, my friend! We don't have so much coins for exchange";
+      return errorObj;
+      // throw new Error ("You are rich, my friend! We don't have so much coins for exchange");
+      // // return objError;
     }
 
     var coins = [50,25,10,5,1];
